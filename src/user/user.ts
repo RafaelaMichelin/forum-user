@@ -21,8 +21,8 @@ export class User extends Model<User>
     })
     declare email:string;
 
-    //CAMPO NOME COM ALLOWNULL(TRUE) -> NÃO É OBRIGATÓRIO
-    @AllowNull(true)
+    //CAMPO NOME COM ALLOWNULL(FALSE) ->  É OBRIGATÓRIO
+    @AllowNull(false)
     @Column({
         type:DataType.STRING,
     })

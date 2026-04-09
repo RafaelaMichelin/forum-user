@@ -2,10 +2,12 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { UserModule } from './user/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { SequelizeConfigService } from './config/sequelize.config.service';
+import { UserController } from './user/user.controller';
+import { UserService } from './user/user.service';
+import { User } from './user/user';
 
 @Module({
   imports: [
@@ -17,10 +19,10 @@ import { SequelizeConfigService } from './config/sequelize.config.service';
       useClass:SequelizeConfigService
 
      }),
+    SequelizeModule.forFeature([User]),
      AuthModule,
-     UserModule,
 ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, UserController],
+  providers: [AppService, UserService],
 })
 export class AppModule {}

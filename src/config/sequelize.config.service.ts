@@ -14,7 +14,7 @@ export class SequelizeConfigService implements SequelizeOptionsFactory
         return {
             dialect: "mysql",
             host: this.configService.get<string>('DB_HOST'),
-            port: this.configService.get<number>('DB_PORT'),
+            port: Number (this.configService.get<number>('DB_PORT')),
             username: this.configService.get<string>('DB_USER'),
             password: this.configService.get<string>('DB_PASSWORD') || '',
             database: this.configService.get<string>('DB_DATABASENAME'),
