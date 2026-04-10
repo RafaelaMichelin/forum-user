@@ -13,14 +13,14 @@ import { User } from './user/user';
   imports: [
     ConfigModule.forRoot({isGlobal:true,}),
 
-    SequelizeModule.forRootAsync
-    ({
-      imports:[ConfigModule],
-      useClass:SequelizeConfigService
+ SequelizeModule.forRootAsync
+   ({
+     imports:[ConfigModule],
+     useClass: SequelizeConfigService
 
      }),
-    SequelizeModule.forFeature([User]),
-     AuthModule,
+ SequelizeModule.forFeature([User]),
+    
 ],
   controllers: [AppController, UserController],
   providers: [AppService, UserService],

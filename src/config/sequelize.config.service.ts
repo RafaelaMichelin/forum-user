@@ -10,7 +10,7 @@ export class SequelizeConfigService implements SequelizeOptionsFactory
  constructor(private configService: ConfigService)
  {}
 
-    createSequelizeOptions(connectionName?: string): Promise<SequelizeModuleOptions> | SequelizeModuleOptions {
+    createSequelizeOptions(): Promise<SequelizeModuleOptions> | SequelizeModuleOptions {
         return {
             dialect: "mysql",
             host: this.configService.get<string>('DB_HOST'),
